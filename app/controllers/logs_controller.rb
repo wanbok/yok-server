@@ -1,6 +1,7 @@
 class LogsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
   before_action :set_log, only: [:show, :edit, :update, :destroy, :report]
+  before_filter :authenticate_user!
 
   # GET /logs
   # GET /logs.json
@@ -70,6 +71,10 @@ class LogsController < ApplicationController
   end
 
   def report
+    if @log.new_record?
+      date = Time.parse(params[:log][:date]) rescue Time.now.beginning_of_day
+      @log.date = date
+    end
     @log.curse_count = @log.curse_count.to_i + 1
 
     if @log.save
@@ -82,7 +87,7 @@ class LogsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_log
-      @log = Log.today(Time.zone.now.beginning_of_day).find_or_create_by(user_id: params[:id])
+      @log = Log.today(Time.zone.now.beginning_of_day).find_or_initialize_by(user_id: params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
