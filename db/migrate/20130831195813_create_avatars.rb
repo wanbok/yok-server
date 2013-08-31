@@ -1,7 +1,7 @@
 class CreateAvatars < ActiveRecord::Migration
   def change
     create_table :avatars do |t|
-      t.refereces :user
+      t.references :user, index: true
       t.string :head
       t.string :head_back
       t.string :head_front

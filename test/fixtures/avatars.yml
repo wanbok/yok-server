@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  user: 
+  user_id: 
   head: MyString
   head_back: MyString
   head_front: MyString
@@ -15,7 +15,7 @@ one:
   accessary: MyString
 
 two:
-  user: 
+  user_id: 
   head: MyString
   head_back: MyString
   head_front: MyString
