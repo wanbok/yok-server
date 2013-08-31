@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130831195813) do
+ActiveRecord::Schema.define(version: 20130831203356) do
 
   create_table "avatars", force: true do |t|
     t.integer  "user_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20130831195813) do
     t.integer  "size_of_team"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "logs", force: true do |t|
