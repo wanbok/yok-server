@@ -4,5 +4,5 @@ class Group < ActiveRecord::Base
   has_many :students, through: :teams, class_name: "User", foreign_key: "team_id"
   has_many :teams
   has_many :missions
-  
+
 end

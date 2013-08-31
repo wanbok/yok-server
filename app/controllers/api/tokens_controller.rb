@@ -3,8 +3,8 @@ class Api::TokensController  < ApplicationController
   respond_to :json
 
   def create
-    phonenumber = params[:phonenumber]
-    password = params[:password]
+    phonenumber = params[:user][:phonenumber]
+    password = params[:user][:password]
     if request.format != :json
       render :status=>406, :json=>{:message=>"The request must be json"}
       return

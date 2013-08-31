@@ -26,9 +26,9 @@ class LogsController < ApplicationController
   # POST /logs
   # POST /logs.json
   def create
-    if params[:log][:date]
+    if params[:auth_token]
       date = Date.parse(params[:log][:date]) rescue Date.today
-      @log = Log.today(date).find_or_create_by(user_id: current_user.id)
+      @log = Log.today(date).find_or_initialize_by(user_id: User.find_by_authentication_token(params[:auth_token]).id)
       @log.date = date
       @log.diary = params[:log][:diary]
     else
@@ -72,7 +72,7 @@ class LogsController < ApplicationController
 
   def report
     if @log.new_record?
-      date = Time.parse(params[:log][:date]) rescue Time.now.beginning_of_day
+      date = Date.parse(params[:log][:date]) rescue Date.today
       @log.date = date
     end
     @log.curse_count = @log.curse_count.to_i + 1
@@ -87,7 +87,7 @@ class LogsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_log
-      @log = Log.today(Time.zone.now.beginning_of_day).find_or_initialize_by(user_id: params[:id])
+      @log = Log.today(Date.today).find_or_initialize_by(user_id: params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

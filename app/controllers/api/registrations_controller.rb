@@ -8,6 +8,7 @@ module Api
       unless user.has_any_role? :student, :teacher
         user.role = :student
       end
+      # user.avatar = Avatar.new(avatar_params)
       if user.save
         render :json=> {:token=>user.authentication_token, :phonenumber=>user.phonenumber}, :status=>201
         return
@@ -24,6 +25,13 @@ module Api
     # this method with per-user checking of permissible attributes.
     def user_params
       params.require(:user).permit(:phonenumber, :password, :password_confirmation, :name, :role)
+    end
+
+    def avatar_params
+      params.require(:avatar).permit(:head, :head_back, :head_front,
+                                     :torso, :torso_back, :torso_front, 
+                                     :leg, :leg_back, :leg_front,
+                                     :whole_back, :accessary)
     end
   end
 end
