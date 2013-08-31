@@ -4,6 +4,10 @@ module Api
     respond_to :json
     def create
       user = User.new(user_params)
+      user.role = user.role.to_sym rescue :student
+      unless user.has_any_role? :student, :teacher
+        user.role = :student
+      end
       if user.save
         render :json=> {:token=>user.authentication_token, :phonenumber=>user.phonenumber}, :status=>201
         return
@@ -19,7 +23,7 @@ module Api
     # permit list between create and update. Also, you can specialize
     # this method with per-user checking of permissible attributes.
     def user_params
-      params.require(:user).permit(:phonenumber, :password, :password_confirmation, :name)
+      params.require(:user).permit(:phonenumber, :password, :password_confirmation, :name, :role)
     end
   end
 end

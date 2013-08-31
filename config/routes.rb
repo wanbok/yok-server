@@ -1,4 +1,10 @@
 Yok::Application.routes.draw do
+  resources :missions
+
+  resources :teams
+
+  resources :groups
+
   resources :logs
   post 'logs/report/:id' => 'logs#report'
 

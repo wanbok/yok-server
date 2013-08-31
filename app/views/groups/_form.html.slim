@@ -1,0 +1,9 @@
+= simple_form_for(@group) do |f|
+  = f.error_notification
+
+  .inputs
+  |     = f.input :teacher_id
+  |     = f.input :size_of_team
+  | 
+  .actions
+    = f.button :submit

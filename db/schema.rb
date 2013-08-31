@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130831161112) do
+ActiveRecord::Schema.define(version: 20130831192512) do
+
+  create_table "groups", force: true do |t|
+    t.integer  "teacher_id"
+    t.integer  "size_of_team"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "logs", force: true do |t|
     t.integer  "user_id"
@@ -23,6 +30,25 @@ ActiveRecord::Schema.define(version: 20130831161112) do
   end
 
   add_index "logs", ["user_id"], name: "index_logs_on_user_id"
+
+  create_table "missions", force: true do |t|
+    t.integer  "group_id"
+    t.string   "content"
+    t.decimal  "duration",   precision: 20, scale: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "missions", ["group_id"], name: "index_missions_on_group_id"
+
+  create_table "teams", force: true do |t|
+    t.integer  "group_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teams", ["group_id"], name: "index_teams_on_group_id"
 
   create_table "users", force: true do |t|
     t.string   "phonenumber",            default: "", null: false
@@ -39,6 +65,8 @@ ActiveRecord::Schema.define(version: 20130831161112) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "team_id"
+    t.string   "role"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true

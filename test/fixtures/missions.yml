@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  group_id: 
+  content: MyString
+  duration: 9.99
+
+two:
+  group_id: 
+  content: MyString
+  duration: 9.99

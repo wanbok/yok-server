@@ -1,0 +1,10 @@
+= simple_form_for(@mission) do |f|
+  = f.error_notification
+
+  .inputs
+  |     = f.association :group
+  |     = f.input :content
+  |     = f.input :duration
+  | 
+  .actions
+    = f.button :submit

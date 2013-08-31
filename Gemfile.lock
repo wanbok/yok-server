@@ -113,6 +113,8 @@ GEM
       json (>= 1.1.3)
       rdoc (~> 3.10)
     simple_form (1.4.1)
+    simple_roles (0.0.12)
+      activerecord (>= 3.1.0)
     slim (2.0.1)
       temple (~> 0.6.6)
       tilt (>= 1.3.3, < 2.1)
@@ -178,6 +180,7 @@ DEPENDENCIES
   rmagick
   sdoc
   simple_form
+  simple_roles
   slim
   slim-rails
   sqlite3

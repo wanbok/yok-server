@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  head: MyString
+  head_back: MyString
+  head_front: MyString
+  torso: MyString
+  torso_back: MyString
+  torso_front: MyString
+  leg: MyString
+  leg_back: MyString
+  leg_front: MyString
+  whole_back: MyString
+  accessary: MyString
+
+two:
+  user: 
+  head: MyString
+  head_back: MyString
+  head_front: MyString
+  torso: MyString
+  torso_back: MyString
+  torso_front: MyString
+  leg: MyString
+  leg_back: MyString
+  leg_front: MyString
+  whole_back: MyString
+  accessary: MyString

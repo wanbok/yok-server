@@ -1,0 +1,23 @@
+h1 Listing missions
+
+table
+  tr
+    th Group
+    th Content
+    th Duration
+    th
+    th
+    th
+
+  - @missions.each do |mission|
+    tr
+      td = mission.group
+      td = mission.content
+      td = mission.duration
+      td = link_to 'Show', mission
+      td = link_to 'Edit', edit_mission_path(mission)
+      td = link_to 'Destroy', mission, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Mission', new_mission_path

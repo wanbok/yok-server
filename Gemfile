@@ -21,8 +21,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-# Devise
+# Managing User
 gem 'devise'
+gem 'simple_roles'
 
 # UI
 gem 'less-rails'

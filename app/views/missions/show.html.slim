@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Group:
+  = @mission.group
+p
+  strong Content:
+  = @mission.content
+p
+  strong Duration:
+  = @mission.duration
+
+= link_to 'Edit', edit_mission_path(@mission)
+'|
+= link_to 'Back', missions_path
