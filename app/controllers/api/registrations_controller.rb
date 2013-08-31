@@ -8,7 +8,7 @@ module Api
       unless user.has_any_role? :student, :teacher
         user.role = :student
       end
-      # user.avatar = Avatar.new(avatar_params)
+      user.avatar = Avatar.new(avatar_params)
       if user.save
         render :json=> {:token=>user.authentication_token, :phonenumber=>user.phonenumber}, :status=>201
         return
