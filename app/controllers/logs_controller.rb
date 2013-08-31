@@ -25,11 +25,11 @@ class LogsController < ApplicationController
   # POST /logs
   # POST /logs.json
   def create
-    if params[:date]
-      date = Date.parse(params[:date]) rescue Date.today
+    if params[:log][:date]
+      date = Date.parse(params[:log][:date]) rescue Date.today
       @log = Log.today(date).find_or_create_by(user_id: current_user.id)
       @log.date = date
-      @log.diary = params[:diary]
+      @log.diary = params[:log][:diary]
     else
       @log = Log.new(log_params)
     end

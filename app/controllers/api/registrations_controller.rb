@@ -19,7 +19,7 @@ module Api
     # permit list between create and update. Also, you can specialize
     # this method with per-user checking of permissible attributes.
     def user_params
-      params.require(:user).permit(:phonenumber, :password, :password_confirmation)
+      params.require(:user).permit(:phonenumber, :password, :password_confirmation, :name)
     end
   end
 end
