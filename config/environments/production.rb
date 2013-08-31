@@ -80,4 +80,7 @@ Yok::Application.configure do
 
   # Devise
   config.action_mailer.default_url_options = { :host => 'yok-server.cloudapp.com:3000' }
+  
+  # Timezone
+  config.timezone = 'Seoul'
 end

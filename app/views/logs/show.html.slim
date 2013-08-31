@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong User:
+  = @log.user
+p
+  strong Curse count:
+  = @log.curse_count
+p
+  strong Diary:
+  = @log.diary
+
+= link_to 'Edit', edit_log_path(@log)
+'|
+= link_to 'Back', logs_path

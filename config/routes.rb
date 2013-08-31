@@ -1,4 +1,7 @@
 Yok::Application.routes.draw do
+  resources :logs
+  post 'logs/report/:id' => 'logs#report'
+
   namespace :api do
     resources :tokens, only: [:create, :destroy]
     devise_for :users
@@ -7,6 +10,8 @@ Yok::Application.routes.draw do
   devise_for :users
 
   get 'users/:phonenumber' => 'users#show'
+
+  root 'logs#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

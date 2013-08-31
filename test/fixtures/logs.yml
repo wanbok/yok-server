@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 
+  curse_count: 1
+  diary: MyString
+
+two:
+  user_id: 
+  curse_count: 1
+  diary: MyString
