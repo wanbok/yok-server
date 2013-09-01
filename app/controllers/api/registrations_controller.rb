@@ -9,6 +9,7 @@ module Api
         user.role = :student
       end
       user.avatar = Avatar.new(avatar_params)
+      Group.find(params[:group_id]).add_student_by_team(user)
       if user.save
         render :json=> {:token=>user.authentication_token, :phonenumber=>user.phonenumber}, :status=>201
         return
@@ -24,7 +25,7 @@ module Api
     # permit list between create and update. Also, you can specialize
     # this method with per-user checking of permissible attributes.
     def user_params
-      params.require(:user).permit(:phonenumber, :password, :password_confirmation, :name, :role)
+      params.require(:user).permit(:phonenumber, :password, :password_confirmation, :name, :role, :team_id)
     end
 
     def avatar_params
