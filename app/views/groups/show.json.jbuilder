@@ -1,4 +1,4 @@
-json.extract! @group, :teacher_id, :size_of_team
+json.extract! @group, :teacher_id, :name, :size_of_team
 json.teacher do
   json.(@group.teacher, :name, :role)
 end
