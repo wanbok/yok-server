@@ -32,3 +32,7 @@ log2 = Log.create({student: student_b, date: Date.today, curse_count: 1, diary: 
 log3 = Log.create({student: student_d, date: Date.today, curse_count: 5, diary: "허허허허허"})
 log4 = Log.create({student: student_d, date: Date.today - 1, curse_count: 2, diary: "허허허허허허"})
 log5 = Log.create({student: student_f, date: Date.today, curse_count: 3, diary: "허허허허허허허허"})
+
+[student_a, student_b, student_c, student_d, student_e, student_f].each do |student|
+  Avatar.create({head: "head", torso: "torso", leg: "leg", user: student})
+end

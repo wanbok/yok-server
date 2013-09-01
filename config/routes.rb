@@ -8,6 +8,8 @@ Yok::Application.routes.draw do
   resources :logs
   post 'logs/report/:id' => 'logs#report'
 
+  resources :avatars, only: [:show]
+
   namespace :api do
     resources :tokens, only: [:create, :destroy]
     devise_for :users

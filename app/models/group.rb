@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Group < ActiveRecord::Base
   # belongs_to :mission
   belongs_to :teacher, :class_name => "User"
